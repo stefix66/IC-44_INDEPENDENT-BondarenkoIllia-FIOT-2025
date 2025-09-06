@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <title>Самостійна робота №1 — Bondarenko Illia</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 30px;
+      background: #f8f9fa;
+      color: #222;
+    }
+    h1, h2, h3 {
+      color: #333;
+    }
+    img {
+      max-width: 250px;
+      border-radius: 10px;
+    }
+    table {
+      width: 60%;
+      border-collapse: collapse;
+      margin: 20px 0;
+    }
+    table, th, td {
+      border: 1px solid black;
+    }
+    th, td {
+      padding: 10px;
+      text-align: center;
+    }
+    form {
+      margin-top: 20px;
+      background: #fff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+      max-width: 400px;
+    }
+    label {
+      display: block;
+      margin: 8px 0 4px;
+    }
+    input, textarea, select {
+      width: 100%;
+      padding: 6px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 10px 15px;
+      background: #007bff;
+      color: white;
+      border: none;
+      cursor: pointer;
+      border-radius: 5px;
+    }
+    button:hover {
+      background: #0056b3;
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Самостійна робота №1</h1>
+  <h2>Структура HTML-документа</h2>
+  <h3>Виконав: Bondarenko Illia, група IC-44</h3>
+
+  <p>
+    Це демонстраційна HTML-сторінка, створена для виконання самостійної роботи.  
+    Тут показані основні елементи: заголовки, зображення, посилання, таблиці, списки та форма.
+  </p>
+
+  <h2>Зображення</h2>
+  <img src="img/pizzaphoto.jpg" alt="Смачне фото піци">
+
+  <h2>Посилання</h2>
+  <p>
+    Корисні матеріали з HTML:  
+    <a href="https://w3schoolsua.github.io/html/html_intro.html" target="_blank">Що таке HTML?</a>
+  </p>
+
+  <h2>Таблиця</h2>
+  <table>
+    <tr>
+      <th>Назва</th>
+      <th>Кількість</th>
+      <th>Ціна</th>
+    </tr>
+    <tr>
+      <td>Піца Маргарита</td>
+      <td>1</td>
+      <td>150 грн</td>
+    </tr>
+    <tr>
+      <td>Кока-кола</td>
+      <td>2</td>
+      <td>80 грн</td>
+    </tr>
+  </table>
+
+  <h2>Списки</h2>
+  <h3>Маркірований список</h3>
+  <ul>
+    <li>HTML</li>
+    <li>CSS</li>
+    <li>JavaScript</li>
+  </ul>
+
+  <h3>Нумерований список</h3>
+  <ol>
+    <li>Відкрити VS Code</li>
+    <li>Створити index.html</li>
+    <li>Написати код</li>
+    <li>Завантажити в GitHub</li>
+  </ol>
+
+  <h2>Форма</h2>
+  <form>
+    <label for="name">Ваше ім’я:</label>
+    <input type="text" id="name" name="name" required>
+
+    <label for="email">Електронна пошта:</label>
+    <input type="email" id="email" name="email" required>
+
+    <label for="pizza">Улюблена піца:</label>
+    <select id="pizza" name="pizza">
+      <option value="margherita">Маргарита</option>
+      <option value="pepperoni">Пепероні</option>
+      <option value="bbq">BBQ</option>
+    </select>
+
+    <label for="message">Коментар:</label>
+    <textarea id="message" name="message"></textarea>
+
+    <button type="submit">Надіслати</button>
+  </form>
+
+</body>
+</html>
