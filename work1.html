@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="uk">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Самостійна робота №1 — Усі приклади в одному файлі</title>
+
+  <!-- Favicon (вбудований SVG через data URL) -->
+  <link rel="icon" type="image/svg+xml"
+        href='data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><rect width="64" height="64" fill="%230055ff"/><text x="32" y="38" font-size="28" text-anchor="middle" fill="white" font-family="Arial">H</text></svg>'/>
+
+  <style>
+    :root { --accent: #0055ff; }
+    * { box-sizing: border-box; }
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.6; margin: 0; color: #111; }
+    header, footer { background: #0b1220; color: #fff; padding: 16px 24px; }
+    header h1 { margin: 0; font-size: 1.4rem; }
+    nav { background: #f5f7fb; border-bottom: 1px solid #e6e9f2; position: sticky; top: 0; z-index: 2; }
+    nav .wrap { display: flex; gap: 12px; flex-wrap: wrap; padding: 12px 24px; }
+    nav a { padding: 6px 10px; border-radius: 8px; text-decoration: none; color: #0b1220; border: 1px solid #dbe1ef; background: #fff; }
+    nav a:hover { border-color: var(--accent); }
+    main { padding: 24px; display: grid; gap: 32px; }
+    section { background: #fff; border: 1px solid #e6e9f2; border-radius: 14px; padding: 20px; }
+    section h2 { margin-top: 0; font-size: 1.25rem; color: #0b1220; }
+    .muted { color: #555; }
+    .block { padding: 12px; border: 1px dashed #cbd5e1; border-radius: 10px; background: #fafbff; }
+    code, pre { background: #0b1220; color: #e6edf7; padding: 2px 6px; border-radius: 6px; }
+    pre { padding: 12px; overflow: auto; }
+    a:link { color: #0055ff; }          /* Посилання - колір для непереглянутих */
+    a:visited { color: #6a00ff; }       /* Посилання - колір для переглянутих */
+    a:hover { text-decoration: underline; }
+    .grid-2 { display: grid; gap: 16px; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); }
+    .table-demo { width: 100%; border-collapse: collapse; }
+    .table-demo th, .table-demo td { border: 1px solid #cdd6f4; padding: 8px 10px; }
+    .table-compact td { padding: 4px 6px; }
+    .table-spacious td { padding: 14px 16px; }
+    .w-75 { width: 75%; }
+    .bg-demo { background-image: url('https://via.placeholder.com/800x160'); background-size: cover; background-position: center; color: white; padding: 24px; border-radius: 12px; }
+    .img-wrap { display: flex; gap: 16px; flex-wrap: wrap; align-items: start; }
+    .img-wrap img { max-width: 100%; height: auto; border-radius: 10px; border: 1px solid #e6e9f2; }
+    fieldset { border: 1px solid #cbd5e1; border-radius: 10px; padding: 12px; }
+    legend { padding: 0 8px; color: #0b1220; }
+    .form-grid { display: grid; gap: 12px; grid-template-columns: repeat(auto-fit, minmax(240px,1fr)); }
+    label { display: block; font-weight: 600; margin-bottom: 4px; }
+    input, select, textarea, button { width: 100%; padding: 8px 10px; border: 1px solid #cdd6f4; border-radius: 10px; font: inherit; }
+    input[type="checkbox"], input[type="radio"] { width: auto; }
+    .note { font-size: 0.92rem; color: #475569; }
+    .hr { height: 1px; background: #e6e9f2; margin: 12px 0 16px; }
+    .bookmark { padding: 8px 10px; background: #eef2ff; border-left: 3px solid var(--accent); margin-bottom: 8px; }
+    .kbd { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace; background: #eef2ff; padding: 2px 6px; border-radius: 4px; border: 1px solid #c7d2fe; }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Самостійна робота №1 — структура, посилання, зображення, таблиці, списки, форми</h1>
+    <p class="muted">Всі приклади зібрано в одному HTML-файлі.</p>
+  </header>
+
+  <nav aria-label="Навігація по розділам">
+    <div class="wrap">
+      <a href="#basic">1. Основи / Структура</a>
+      <a href="#elements-attributes">2. Елементи та атрибути</a>
+      <a href="#paragraphs">3. Параграфи</a>
+      <a href="#links">4. Посилання, кольори, закладки</a>
+      <a href="#images">5. Зображення, фонові, picture, image map, favicon</a>
+      <a href="#tables">6. Таблиці: межі, розміри, заголовки, padding/spacing, colspan/rowspan, стилі, colgroup</a>
+      <a href="#lists">7. Списки: ul/ol/dl</a>
+      <a href="#forms">8. Форми: атрибути, елементи, типи, атрибути вводу</a>
+      <a href="#html5">9. Коротко про HTML5</a>
+      <a href="#top">↑ Вгору</a>
+    </div>
+  </nav>
+
+  <main id="top">
+    <!-- 1. Базова структура -->
+    <section id="basic">
+      <h2>1) HTML Основи / Базова структура</h2>
+      <div class="block">
+        Це сторінка з типовою структурою: <code>&lt;!doctype html&gt;</code>, <code>&lt;html&gt;</code>, <code>&lt;head&gt;</code>, <code>&lt;body&gt;</code>. Нижче приклад простого привітання.
+      </div>
+      <p>Привіт, світ! Це мій перший абзац у HTML.</p>
+      <p>Стиль і скрипти можуть бути підключені через <code>&lt;link&gt;</code> і <code>&lt;script&gt;</code>, а також безпосередньо всередині сторінки.</p>
+    </section>
+
+    <!-- 2. Елементи та атрибути -->
+    <section id="elements-attributes">
+      <h2>2) Елементи та атрибути</h2>
+      <div class="grid-2">
+        <div class="block">
+          <h3>Елемент</h3>
+          <p><strong>Елемент</strong> складається з відкривального та закривального тегів і вмісту між ними.</p>
+          <pre>&lt;strong&gt;жирний текст&lt;/strong&gt;</pre>
+        </div>
+        <div class="block">
+          <h3>Атрибути</h3>
+          <p>Атрибути додають додаткову інформацію до елементів. Наприклад, <code>title</code> у посиланні:</p>
+          <pre>&lt;a href="#basic" title="Повернутись до основ"&gt;До основ&lt;/a&gt;</pre>
+          <p><a href="#basic" title="Повернутись до розділу Основи">Живий приклад</a>.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Параграфи -->
+    <section id="paragraphs">
+      <h2>3) Параграфи</h2>
+      <p>Абзаци створюються тегом <code>&lt;p&gt;</code>. Перенесення рядка без нового абзацу — <code>&lt;br&gt;</code>.<br>Ось приклад з переносом.</p>
+      <p>Горизонтальна лінія нижче використовується для логічного поділу контенту:</p>
+      <div class="hr" role="separator" aria-hidden="true"></div>
+    </section>
+
+    <!-- 4. Посилання -->
+    <section id="links">
+      <h2>4) Посилання, кольори, закладки</h2>
+      <div class="grid-2">
+        <div class="block">
+          <h3>Звичайні посилання</h3>
+          <p><a href="https://w3schoolsua.github.io/html/html_intro.html" target="_blank" rel="noopener">Що таке HTML? (у новій вкладці)</a></p>
+          <p>Посилання можуть мати підказку <span class="kbd">title</span> і різні <em>стани</em>: <code>:link</code>, <code>:visited</code>, <code>:hover</code>.</p>
+        </div>
+        <div class="block">
+          <h3>Закладки на сторінці</h3>
+          <p>Переходимо до конкретних секцій за <em>якорями</em>:</p>
+          <p>
+            <a href="#tables" title="До таблиць">До таблиць</a> ·
+            <a href="#forms" title="До форм">До форм</a> ·
+            <a href="#images" title="До зображень">До зображень</a>
+          </p>
+          <div class="bookmark" id="bookmark-example">Це місце — ціль закладки з id="bookmark-example".</div>
+          <p><a href="#bookmark-example">Повернутися до цієї закладки</a></p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. Зображення -->
+    <section id="images">
+      <h2>5) Зображення (img, background, picture, image map, favicon)</h2>
+
+      <div class="img-wrap">
+        <div>
+          <h3>&lt;img&gt; зі width/height та alt</h3>
+          <img src="img/pizzaphoto.jpg" alt="Заступне зображення 320x180" width="320" height="180">
+          <p class="note">Якщо картинка недоступна — атрибут <code>alt</code> описує її зміст.</p>
+        </div>
+
+        <div class="w-75">
+          <h3>Фонове зображення (CSS)</h3>
+          <div class="bg-demo">
+            <strong>Фонова секція</strong>: зручна для банерів або хедерів.
+          </div>
+        </div>
+      </div>
+
+      <div class="grid-2" style="margin-top:16px">
+        <div>
+          <h3>&lt;picture&gt; з адаптивними джерелами</h3>
+          <picture>
+            <source media="(min-width: 900px)" srcset="https://via.placeholder.com/900x300">
+            <source media="(min-width: 600px)" srcset="https://via.placeholder.com/600x200">
+            <img src="img/pizzaphoto.jpg" alt="Адаптивне зображення">
+          </picture>
+          <p class="note">Браузер обирає відповідне джерело за медіа-умовами.</p>
+        </div>
+
+        <div>
+          <h3>Карта зображення (image map)</h3>
+          <img src="img/nature.jpg" alt="Карта зображення" usemap="#demo-map" width="600" height="300">
+          <map name="demo-map">
+            <area shape="rect" coords="10,10,290,140" href="#lists" alt="Перейти до списків">
+            <area shape="circle" coords="450,150,60" href="#forms" alt="Перейти до форм">
+          </map>
+          <p class="note">Прямокутна область веде до списків, коло — до форм.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. Таблиці -->
+    <section id="tables">
+      <h2>6) Таблиці: все в одному місці</h2>
+
+      <h3>6.1 Базова таблиця з підписом та заголовками (caption, thead, tbody, tfoot)</h3>
+      <table class="table-demo">
+        <caption>Продажі за квартал</caption>
+        <thead>
+          <tr>
+            <th scope="col">Квартал</th>
+            <th scope="col">Товари A</th>
+            <th scope="col">Товари B</th>
+            <th scope="col">Разом</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <th scope="row">Q1</th><td>120</td><td>80</td><td>200</td>
+          </tr>
+          <tr>
+            <th scope="row">Q2</th><td>150</td><td>90</td><td>240</td>
+          </tr>
+        </tbody>
+        <tfoot>
+          <tr>
+            <th scope="row">Разом</th><td>270</td><td>170</td><td>440</td>
+          </tr>
+        </tfoot>
+      </table>
+
+      <div class="hr"></div>
+
+      <h3>6.2 Розмір таблиці (width/height)</h3>
+      <table class="table-demo w-75">
+        <tr><th>Ширина 75%</th><th>Дані</th></tr>
+        <tr><td>Комірка 1</td><td>Комірка 2</td></tr>
+      </table>
+
+      <div class="hr"></div>
+
+      <h3>6.3 Padding &amp; Spacing (через CSS)</h3>
+      <p class="note">Нижче — дві таблиці з різною "щільністю" комірок.</p>
+      <div class="grid-2">
+        <table class="table-demo table-compact">
+          <tr><th>Компактна</th><th>Items</th></tr>
+          <tr><td>Щільно</td><td>1</td></tr>
+          <tr><td>Щільно</td><td>2</td></tr>
+        </table>
+        <table class="table-demo table-spacious">
+          <tr><th>Простора</th><th>Items</th></tr>
+          <tr><td>Більше відступів</td><td>1</td></tr>
+          <tr><td>Більше відступів</td><td>2</td></tr>
+        </table>
+      </div>
+
+      <div class="hr"></div>
+
+      <h3>6.4 Colspan &amp; Rowspan</h3>
+      <table class="table-demo">
+        <tr>
+          <th>Ім'я</th><th>Пн</th><th>Вт</th><th>Ср</th><th>Чт</th><th>Пт</th>
+        </tr>
+        <tr>
+          <td rowspan="2">Олена</td><td colspan="2">Лабораторна</td><td>Лекція</td><td>Вікно</td><td>Залік</td>
+        </tr>
+        <tr>
+          <td>Практика</td><td>Практика</td><td colspan="3">Проєкт</td>
+        </tr>
+      </table>
+
+      <div class="hr"></div>
+
+      <h3>6.5 Стилізація таблиць + colgroup</h3>
+      <table class="table-demo" style="border-collapse: separate; border-spacing: 0;">
+        <colgroup>
+          <col span="1" style="background:#f8fafc">
+          <col span="1" style="background:#eef2ff">
+          <col span="1" style="background:#f1f5f9">
+        </colgroup>
+        <tr>
+          <th>Стовпець 1</th><th>Стовпець 2</th><th>Стовпець 3</th>
+        </tr>
+        <tr>
+          <td>Дані A</td><td>Дані B</td><td>Дані C</td>
+        </tr>
+      </table>
+    </section>
+
+    <!-- 7. Списки -->
+    <section id="lists">
+      <h2>7) Списки: невпорядковані, впорядковані та описові</h2>
+      <div class="grid-2">
+        <div>
+          <h3>Невпорядкований список (ul)</h3>
+          <ul>
+            <li>Піца</li>
+            <li>Паста</li>
+            <li>Салат</li>
+          </ul>
+          <h4>Інші маркери</h4>
+          <ul style="list-style-type: circle;">
+            <li>circle</li>
+          </ul>
+          <ul style="list-style-type: square;">
+            <li>square</li>
+          </ul>
+        </div>
+
+        <div>
+          <h3>Впорядкований список (ol)</h3>
+          <ol>
+            <li>Підготувати дані</li>
+            <li>Розробити макет</li>
+            <li>Реалізувати</li>
+          </ol>
+          <h4>ol з римськими цифрами та початком зі 100</h4>
+          <ol type="I" start="100">
+            <li>Крок</li>
+            <li>Крок</li>
+          </ol>
+        </div>
+      </div>
+
+      <h3>Список описів (dl)</h3>
+      <dl>
+        <dt>HTML</dt><dd>Мова розмітки гіпертексту.</dd>
+        <dt>CSS</dt><dd>Мова стилів для оформлення.</dd>
+        <dt>JavaScript</dt><dd>Мова програмування для логіки на клієнті.</dd>
+      </dl>
+    </section>
+
+    <!-- 8. Форми -->
+    <section id="forms">
+      <h2>8) Форми: атрибути, елементи, типи вводу, атрибути вводу</h2>
+
+      <h3>8.1 Атрибути форми</h3>
+      <form action="#" method="get" target="_self" autocomplete="on" name="demoForm1">
+        <div class="form-grid">
+          <div>
+            <label for="search">Пошук (GET)</label>
+            <input id="search" name="q" type="search" placeholder="Введіть запит…">
+          </div>
+          <div>
+            <label for="email">Email (required)</label>
+            <input id="email" name="email" type="email" placeholder="name@example.com" required>
+          </div>
+          <div>
+            <label for="age">Вік (min/max/step)</label>
+            <input id="age" name="age" type="number" min="0" max="120" step="1" value="18">
+          </div>
+          <div>
+            <label for="color">Улюблений колір</label>
+            <input id="color" name="color" type="color">
+          </div>
+          <div>
+            <label for="date">Дата</label>
+            <input id="date" name="date" type="date">
+          </div>
+          <div>
+            <label for="file">Файл (multiple)</label>
+            <input id="file" name="file" type="file" multiple>
+          </div>
+          <div>
+            <label for="url">URL (pattern)</label>
+            <input id="url" name="url" type="url" placeholder="https://example.com" pattern="https?://.*">
+          </div>
+          <div>
+            <label for="range">Діапазон</label>
+            <input id="range" name="range" type="range" min="0" max="100" value="50" oninput="document.getElementById('out').value=this.value">
+            <output id="out">50</output>
+          </div>
+        </div>
+
+        <fieldset style="margin-top:12px">
+          <legend>Вибір опцій</legend>
+          <label><input type="checkbox" name="agree" required> Погоджуюсь з умовами</label><br>
+          <label><input type="radio" name="plan" value="basic" checked> Basic</label>
+          <label><input type="radio" name="plan" value="pro"> Pro</label>
+        </fieldset>
+
+        <fieldset style="margin-top:12px">
+          <legend>Елементи форми</legend>
+          <label for="city">Місто (select + optgroup)</label>
+          <select id="city" name="city">
+            <optgroup label="Україна">
+              <option>Київ</option>
+              <option>Львів</option>
+              <option>Одеса</option>
+            </optgroup>
+            <optgroup label="Інше">
+              <option>Варшава</option>
+              <option>Берлін</option>
+            </optgroup>
+          </select>
+
+          <label for="message" style="margin-top:8px">Повідомлення (textarea)</label>
+          <textarea id="message" name="message" rows="3" placeholder="Ваш текст…"></textarea>
+
+          <label for="browser" style="margin-top:8px">Datalist (підказки)</label>
+          <input list="browsers" id="browser" name="browser" placeholder="Введіть браузер">
+          <datalist id="browsers">
+            <option value="Chrome"></option>
+            <option value="Firefox"></option>
+            <option value="Edge"></option>
+            <option value="Safari"></option>
+          </datalist>
+        </fieldset>
+
+        <div style="display:flex; gap:10px; margin-top:12px">
+          <button type="submit">Надіслати</button>
+          <button type="reset">Скинути</button>
+        </div>
+      </form>
+
+      <p class="note" style="margin-top:10px">
+        Інші атрибути, як-от <code>readonly</code>, <code>disabled</code>, <code>maxlength</code>, <code>size</code>, можна побачити нижче:
+      </p>
+
+      <form action="#" method="post" novalidate>
+        <div class="form-grid">
+          <div>
+            <label for="ro">Readonly поле</label>
+            <input id="ro" value="Лише для читання" readonly>
+          </div>
+          <div>
+            <label for="dis">Disabled поле</label>
+            <input id="dis" value="Вимкнено" disabled>
+          </div>
+          <div>
+            <label for="pwd">Пароль (maxlength=12)</label>
+            <input id="pwd" type="password" maxlength="12" placeholder="пароль…">
+          </div>
+          <div>
+            <label for="tel">Телефон (pattern)</label>
+            <input id="tel" type="tel" placeholder="+380XXXXXXXXX" pattern="\+?\d{10,13}">
+          </div>
+        </div>
+      </form>
+    </section>
+
+    <!-- 9. HTML5 (коротко) -->
+    <section id="html5">
+      <h2>9) HTML5 семантика та медіа</h2>
+      <article class="block">
+        <header><h3>Приклад семантичних елементів</h3></header>
+        <p>HTML5 додає семантичні теги на кшталт <code>&lt;header&gt;</code>, <code>&lt;nav&gt;</code>, <code>&lt;section&gt;</code>, <code>&lt;article&gt;</code>, <code>&lt;aside&gt;</code>, <code>&lt;footer&gt;</code>.</p>
+        <aside class="note">Семантика покращує доступність і SEO.</aside>
+        <footer class="muted">Кінець статті</footer>
+      </article>
+
+      <h3>Медіа (video)</h3>
+      <video controls width="480">
+        <source src="https://interactive-examples.mdn.mozilla.net/media/cc0-videos/flower.mp4" type="video/mp4">
+        Ваш браузер не підтримує відтворення відео.
+      </video>
+    </section>
+  </main>
+
+  <footer>
+    <small>&copy; 2025. Приклади для Самостійної роботи №1. Всі приклади зібрано за навчальним планом.</small>
+  </footer>
+</body>
+</html>

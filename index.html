@@ -1,139 +1,91 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="uk">
 <head>
-  <meta charset="UTF-8">
-  <title>Самостійна робота №1 — Bondarenko Illia</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Самостійні роботи — Бондаренко Ілля</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 30px;
-      background: #f8f9fa;
-      color: #222;
+    /* Простий сучасний стиль для кнопок і центрування */
+    :root{
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      color-scheme: light;
     }
-    h1, h2, h3 {
-      color: #333;
+    body{
+      margin:0;
+      min-height:100vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      background:linear-gradient(180deg,#f6f8fb,#ffffff);
+      padding:24px;
     }
-    img {
-      max-width: 250px;
-      border-radius: 10px;
+    .card{
+      max-width:720px;
+      width:100%;
+      background:#fff;
+      border-radius:12px;
+      box-shadow:0 8px 30px rgba(17,24,39,0.08);
+      padding:28px;
     }
-    table {
-      width: 60%;
-      border-collapse: collapse;
-      margin: 20px 0;
+    header h1{
+      margin:0 0 8px 0;
+      font-size:1.6rem;
     }
-    table, th, td {
-      border: 1px solid black;
+    header p{
+      margin:0 0 18px 0;
+      color:#334155;
     }
-    th, td {
-      padding: 10px;
-      text-align: center;
+    .buttons{
+      display:flex;
+      gap:12px;
+      flex-wrap:wrap;
+      margin-top:12px;
     }
-    form {
-      margin-top: 20px;
-      background: #fff;
-      padding: 15px;
-      border-radius: 8px;
-      box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-      max-width: 400px;
+    /* кнопкоподібні посилання */
+    .btn{
+      display:inline-block;
+      text-decoration:none;
+      padding:10px 16px;
+      border-radius:8px;
+      border:1px solid transparent;
+      font-weight:600;
+      background:#0ea5a4;
+      color:#ffffff;
+      transition:transform .08s ease, box-shadow .08s ease;
     }
-    label {
-      display: block;
-      margin: 8px 0 4px;
+    .btn.secondary{
+      background:#e2e8f0;
+      color:#0f172a;
     }
-    input, textarea, select {
-      width: 100%;
-      padding: 6px;
-      margin-bottom: 10px;
-    }
-    button {
-      padding: 10px 15px;
-      background: #007bff;
-      color: white;
-      border: none;
-      cursor: pointer;
-      border-radius: 5px;
-    }
-    button:hover {
-      background: #0056b3;
+    .btn:active{ transform:translateY(1px); }
+    .small-note{ margin-top:16px; color:#475569; font-size:.95rem; }
+    footer{ margin-top:18px; font-size:.9rem; color:#64748b; }
+    @media (max-width:420px){
+      .card{ padding:18px; }
+      .btn{ width:100%; text-align:center; }
     }
   </style>
 </head>
 <body>
+  <main class="card" role="main">
+    <header>
+      <h1>Самостійні роботи</h1>
+      <p>Виконав студент групи <strong>ІС-44</strong><br><strong>Бондаренко Ілля Миколайович</strong></p>
+    </header>
 
-  <h1>Самостійна робота №1</h1>
-  <h2>Структура HTML-документа</h2>
-  <h3>Виконав: Bondarenko Illia, група IC-44</h3>
+    <nav aria-label="Навігація самостійних робіт">
+      <div class="buttons">
+        <!-- Посилання ведуть на окремі HTML-сторінки -->
+        <a class="btn" href="work1.html">Самостійна робота 1</a>
+        <a class="btn secondary" href="work2.html">Самостійна робота 2</a>
+      </div>
+    </nav>
 
-  <p>
-    Це демонстраційна HTML-сторінка, створена для виконання самостійної роботи.  
-    Тут показані основні елементи: заголовки, зображення, посилання, таблиці, списки та форма.
-  </p>
+    <p class="small-note">Натисніть кнопку, щоб перейти до відповідної сторінки з виконанням завдань.</p>
 
-  <h2>Зображення</h2>
-  <img src="img/pizzaphoto.jpg" alt="Смачне фото піци">
-
-  <h2>Посилання</h2>
-  <p>
-    Корисні матеріали з HTML:  
-    <a href="https://w3schoolsua.github.io/html/html_intro.html" target="_blank">Що таке HTML?</a>
-  </p>
-
-  <h2>Таблиця</h2>
-  <table>
-    <tr>
-      <th>Назва</th>
-      <th>Кількість</th>
-      <th>Ціна</th>
-    </tr>
-    <tr>
-      <td>Піца Маргарита</td>
-      <td>1</td>
-      <td>150 грн</td>
-    </tr>
-    <tr>
-      <td>Кока-кола</td>
-      <td>2</td>
-      <td>80 грн</td>
-    </tr>
-  </table>
-
-  <h2>Списки</h2>
-  <h3>Маркірований список</h3>
-  <ul>
-    <li>HTML</li>
-    <li>CSS</li>
-    <li>JavaScript</li>
-  </ul>
-
-  <h3>Нумерований список</h3>
-  <ol>
-    <li>Відкрити VS Code</li>
-    <li>Створити index.html</li>
-    <li>Написати код</li>
-    <li>Завантажити в GitHub</li>
-  </ol>
-
-  <h2>Форма</h2>
-  <form>
-    <label for="name">Ваше ім’я:</label>
-    <input type="text" id="name" name="name" required>
-
-    <label for="email">Електронна пошта:</label>
-    <input type="email" id="email" name="email" required>
-
-    <label for="pizza">Улюблена піца:</label>
-    <select id="pizza" name="pizza">
-      <option value="margherita">Маргарита</option>
-      <option value="pepperoni">Пепероні</option>
-      <option value="bbq">BBQ</option>
-    </select>
-
-    <label for="message">Коментар:</label>
-    <textarea id="message" name="message"></textarea>
-
-    <button type="submit">Надіслати</button>
-  </form>
-
+    <footer>
+      <p>Версія сторінки: 1.0</p>
+    </footer>
+  </main>
 </body>
 </html>
